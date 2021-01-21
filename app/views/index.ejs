@@ -21,12 +21,12 @@ html, body {
 
     -webkit-user-select: none;
 
-    background: #000000; /*#039be5;*/
-    border-bottom: 2px solid #ffffff;
+    background: #045FB4; /*#039be5;*/
+    border-bottom: 2px solid #045FB4;
 }
 .page-header a {
     position: absolute;
-    right: 0; margin: 8px 5px;
+    right: 0; margin: 8px 20px;
     text-decoration: none;
 
     color: white;
@@ -42,7 +42,7 @@ html, body {
 }
 .page-header a:hover {
     color: yellow;
-    background: #444444;
+    background: #045FB4;
 }
 .page-header .active {
     color: yellow;
@@ -68,14 +68,14 @@ html, body {
     height: calc(100% - 5px);
     border-bottom: 2px solid white;
 
-    background: #ffffff;
+    background: #E0ECF8;
 
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .scan-result {
-    color: white;
+    color: black;
     position: relative;
     height: 40px; line-height: 40px;
 
@@ -86,16 +86,16 @@ html, body {
     transition:         all 0.3s ease;
     cursor: pointer;
 
-    border-bottom: 2px solid #666666;
-    background: #222222;
+    border-bottom: 2px solid #E0ECF8;
+    background: #E0ECF8;
 }
 .scan-result:hover {
-    color: yellow;
-    background: #444444;
+    color: blue;
+    background: #E0ECF8;
 }
 .scan-result.selected {
-    color: yellow;
-    background: #888888;
+    color: blue;
+    background: #E0ECF8;
 }
 .scan-result .ssid {
     position: absolute;
@@ -164,7 +164,7 @@ html, body {
     height: 40px; line-height: 40px;
     text-align: center;
 
-    border: 2px solid #000000;
+    border: 2px solid #5882FA;
 
     position: absolute;
 
@@ -257,16 +257,20 @@ html, body {
 
 <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'WIFI')">WIFI</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+	<button class="tablinks" onclick="openCity(event, 'Welcome')">1. Welcome</button>
+	<button class="tablinks" onclick="openCity(event, 'WIFI')">2. WIFI</button>
+	<button class="tablinks" onclick="openCity(event, 'Update')">3. Update</button>
+	<button class="tablinks" onclick="openCity(event, 'Install')">4. Install</button>
 </div>
 
 <!-- Tab content -->
+<div id="Welcome" class="tabcontent">
+  <h3>1. Welcome</h3>
+  <p>Welcome to simpleaudio.</p>
+</div>
+	
 <div id="WIFI" class="tabcontent">
-  <h3>WIFI</h3>
   <head>
-    <title>Rpi Wifi Config</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -281,7 +285,7 @@ html, body {
       ng-keyup      = "$event.keyCode == 27 ? change_selection(null) : ''">
 
     <div class = "page-header">
-        <i class = "fa fa-wifi"></i> Choose a Wifi Ap
+        <i class = "fa fa-wifi"></i> Available WIFI Networks:
         <a href = "#" ng-click = "rescan()" ng-class = "{ 'active': scan_running }">
             <i class = "fa fa-refresh"
                ng-class = "{ 'fa-spin': scan_running }"></i>
@@ -317,14 +321,14 @@ html, body {
 </body>
 </div>
 
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
+<div id="Update" class="tabcontent">
+  <h3>3. Update</h3>
+  <p>Update your raspberry pi to newest version.</p>
 </div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+	
+<div id="Install" class="tabcontent">
+  <h3>4. Install</h3>
+  <p>Choose the components you wish to install. This is also available after first installation and can be done always.</p>
 </div>
 
 </html>
