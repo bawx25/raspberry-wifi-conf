@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="RpiWifiConfig">
 	<head>
-		<meta charset="utf-8" />
-		<title>HTMLiveCode</title>
 		<style type="text/css">
-			html, body {
+html, body {
     margin: 0; padding: 0;
     font-family: "Roboto", "PT Sans", sans-serif;
     height: 100%; min-height: 100%;
@@ -112,52 +110,6 @@
     top: 0; left: 85%;
     width: 10%; height: 100%;
 }
-
-/*
-.password_input {
-    margin: 0 auto;
-    width: 80%; max-width: 300px;
-    height: 45px;
-    background: #f0f9fe;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition:    all 0.3s ease;
-    -ms-transition:     all 0.3s ease;
-    -o-transition:      all 0.3s ease;
-    transition:         all 0.3s ease;
-    overflow: hidden;
-}
-.password_input.hidden {
-    height: 0px;
-}
-.password_input input {
-    width: 98%;
-    height: 87%;
-    line-height: 134%;
-    font-size: 17pt;
-}
-.submit_btn {
-    margin: 0 auto;
-    width: 80%; max-width: 300px;
-    height: 45px; line-height: 45px;
-    background: #222222;
-    color: white;
-    cursor: pointer;
-    font-size: 18pt;
-    text-align: center;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition:    all 0.3s ease;
-    -ms-transition:     all 0.3s ease;
-    -o-transition:      all 0.3s ease;
-    transition:         all 0.3s ease;
-}
-.submit_btn:hover {
-    background: #28e602;
-    color: black;
-}
-*/
-
 
 .rwc-password-entry-container {
     position: absolute;
@@ -276,60 +228,43 @@
 		</style>
 		<script type="text/javascript">
 			function openCity(evt, cityName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+  			// Declare all variables
+  			var i, tabcontent, tablinks;
+		
+  			// Get all elements with class="tabcontent" and hide them
+ 			tabcontent = document.getElementsByClassName("tabcontent");
+  			for (i = 0; i < tabcontent.length; i++) {
+  			  tabcontent[i].style.display = "none";
+  			}
+		
+  			// Get all elements with class="tablinks" and remove the class "active"
+  			tablinks = document.getElementsByClassName("tablinks");
+  			for (i = 0; i < tablinks.length; i++) {
+  			tablinks[i].className = tablinks[i].className.replace(" active", "");
+  			}
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+  			// Show the current tab, and add an "active" class to the button that opened the tab
+  			document.getElementById(cityName).style.display = "block";
+  			evt.currentTarget.className += " active";
+			}
 		</script>
 	</head>
 
 	<body>
 		
 	</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en" ng-app="RpiWifiConfig">
 
 <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'WIFI')">WIFI</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
 </div>
 
 <!-- Tab content -->
-<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
-<head>
+<div id="WIFI" class="tabcontent">
+  <h3>WIFI</h3>
+  <head>
     <title>Rpi Wifi Config</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=1">
@@ -379,5 +314,16 @@
     <script src="/app.js"></script>
 
 </body>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
 
 </html>
