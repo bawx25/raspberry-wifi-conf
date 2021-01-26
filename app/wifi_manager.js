@@ -262,12 +262,6 @@ module.exports = function() {
                         next_step();
                     });
                 },
-				function update_wpa_supplicant(next_step) {
-                    write_template_to_file(
-                        "./assets/etc/wpa_supplicant/wpa_supplicant.conf.template",
-                        "/etc/wpa_supplicant/wpa_supplicant.conf",
-                        connection_info, next_step);
-				},
 
                 function update_interfaces(next_step) {
                     write_template_to_file(
