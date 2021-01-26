@@ -255,15 +255,14 @@ module.exports = function() {
             
 				
 				//Add new network
-		    
-		   function update_wpa_supplicant(next_step) {
+		function update_wpa_supplicant(next_step) {
                     write_template_to_file(
                         "./assets/etc/wpa_supplicant/wpa_supplicant.conf.template",
                         "/etc/wpa_supplicant/wpa_template.template",
                         connection_info, next_step);
 				},
 		    
-		 function update_wpa_supplicant(next_step) {
+		function update_wpa_supplicant(next_step) {
                     exec("cat /etc/wpa_supplicant/wpa_template.template >> /etc/wpa_supplicant/wpa_supplicant.conf", function(error, stdout, stderr) {
                         if (!error) console.log("... adding wifi network!");
                         else console.log("... adding wifi network failed! - " + stdout);
@@ -320,6 +319,14 @@ module.exports = function() {
 
                 function reboot_network_interfaces(next_step) {
                     _reboot_wireless_network(config.wifi_interface, next_step);
+		    next_step();
+                },
+		    
+		function restart_raspi(next_step) {
+                    exec("sudo reboot", function(error, stdout, stderr) {
+                        if (!error) console.log("... restarting OS!");
+                        else console.log("... restarting OS failed! - " + stdout);
+                    });
                 },
 
             ], callback);
