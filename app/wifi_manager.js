@@ -256,7 +256,7 @@ module.exports = function() {
 				
 				//Add new network
 		 function update_wpa_supplicant(next_step) {
-                    exec("cat /etc/wpa_supplicant/wpa_template >> /etc/wpa_supplicant/wpa_supplicant.conf", function(error, stdout, stderr) {
+                    exec("cat /etc/wpa_supplicant/wpa_template.template >> /etc/wpa_supplicant/wpa_supplicant.conf", function(error, stdout, stderr) {
                         if (!error) console.log("... adding wifi network!");
                         else console.log("... adding wifi network failed! - " + stdout);
                         next_step();
