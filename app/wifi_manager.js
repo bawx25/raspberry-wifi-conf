@@ -4,7 +4,7 @@ var _       = require("underscore")._,
     exec    = require("child_process").exec,
     config  = require("../config.json");
 
-const 	cmd = "sed -i 4r<(sed '1,5!d' /etc/wpa_supplicant/wpa_template.template) /etc/wpa_supplicant/wpa_supplicant.conf"
+const 	cmd = "sudo sed -i 4r<(sed '1,5!d' /etc/wpa_supplicant/wpa_template.template) /etc/wpa_supplicant/wpa_supplicant.conf"
 
 // Better template format
 _.templateSettings = {
