@@ -4,8 +4,6 @@ var _       = require("underscore")._,
     exec    = require("child_process").exec,
     config  = require("../config.json");
 
-const 	cmd = "sudo sed -i 4r<(sed '1,5!d' /etc/wpa_supplicant/wpa_template.template) /etc/wpa_supplicant/wpa_supplicant.conf"
-
 // Better template format
 _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g,
@@ -265,7 +263,7 @@ module.exports = function() {
 				},
 		    
 				function update_wpa_supplicant(next_step) {
-                    exec(cmd, function(error, stdout, stderr) {
+                    exec(sudo simpleaudio/addwifi.sh, function(error, stdout, stderr) {
                         if (!error) console.log("... adding wifi network!");
                         else console.log("... adding wifi network failed! - " + stdout);
                         next_step();
